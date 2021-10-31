@@ -1,0 +1,22 @@
+﻿@* Burada olusturdugumuz deneme layoutunu calistirmak istersek calistiramayiz cunku bu layoutun bir controller'ı olmasi gerekiyor. *@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Burası <Title></Title></title>
+</head>
+<body>
+    <div>
+        Burası Layout
+    </div>
+    <div>
+        @* index html'i calistirdigimiz zaman render body hatasi ile karsilasiriz. Bunun nedeni biz bir layout olusturuyoruz fakat bu layoutun icerisine sayfalari yuklerken layoutun hangi kısmına getirmemiz gerektigini soruyor. Bunun icin de razor syntax'ı kullaniliyor. Yani biz html tarafinda c# kodlarini kulanabiliyoruz. Bunun icin @ sembolu kullanmak yeterli oluyor. *@
+        @RenderBody()
+    </div>
+</body>
+</html>

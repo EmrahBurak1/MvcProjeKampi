@@ -1,0 +1,40 @@
+﻿@model EntityLayer.Concrete.Category
+@*ilk olarak model çağırılır. *@
+
+
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h1>Yeni Kategori Ekleme Sayfası</h1>
+<br /> 
+
+@* HTML helper kulanmak için razor syntax ile kullanılıyor *@
+@*Kullanımı da @ işareti ile başlıyor daha sonra HTML. yapılınca karşımıza methodlar çıkıyor. Çıkan methodlar html helper methodları örneğin textboxlar labellar checkboxlar vs bir çok araç var.*@
+@*Bu şekilde html helper kullanılarak başlangıç formu oluşturulur. Bu da begin form ile yapılır. 3 farklı parametre alır. İlk parametre bizim action ımızın ismi. İkinci parametre üzerinde çalıştığımız controller ismi, üçüncü parametre ise form methodunun değeri yani formmethod post yapılınca biz gönderme işlemi yapılınca ör butona basılınca süslü parantez bloğu arasındaki kodlar çalışsın anlamında.*@
+@using (Html.BeginForm("AddCategory", "Category", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Kategori Adı")
+        @Html.TextBoxFor(x=>x.CategoryName) @*,Textboxfor ile linq sorgusunu kullanarak kullanıcıdan bilgi alabiliriz. x=>x. denildiğinde modele bağlı özellikler karşımıza çıkar. Bu şekilde hatalar önlenmiş olur.*@
+        @Html.ValidationMessageFor(x=>x.CategoryName) @*Bu şekilde hata kullanıcıya gösterilebilir.*@
+        <br />  <br />
+        @Html.Label("Açıklamayı Yazınız")
+        @Html.TextBoxFor(x=>x.CategoryDescription)
+        @Html.ValidationMessageFor(x=>x.CategoryDescription)
+        <br /><br />
+        <button>Kaydet</button>
+    </div>
+}
+@* form içerisinde kullanılan method attibute u form içerisinde bulunan ifadeler ne zaman çalışsın onu belirtir. Yani post yazdığımız zaman sayfada bir post işlemi olduğunda çalışsın anlamındadır. *@
+<!--<form class="form-group" method="post">
+    <input type="text" placeholder="Kategori Adı" name="CategoryName" class="form-control" />-->
+@* input ifadesi ile kullanıcıdan veri alınabilir. Textboxa karşılık gelir. placeholder özelliği ile pasif olarak içerisine yazılan yazı anlamına gelir. bootstrap özelliği ile class içerisine form control yazarak text in sayfayı kaplaması sağlanabilir. name özelliğinin anlamı ise category tablosuna veri eklenecek ama hangi sutuna eklenecek onu belirliyoruz. Database üzerinde category tablosu içerisinde hangi sutuna denk gelmesini istiyorsak onu eksiksiz buraya yazıyoruz. *@
+<!--<br />
+<input type="text" placeholder="Açıklama Giriniz" name="CategoryDescription" class="form-control" />-->
+@* input ifadesi ile kullanıcıdan veri alınabilir. Textboxa karşılık gelir. placeholder özelliği ile pasif olarak içerisine yazılan yazı anlamına gelir. bootstrap özelliği ile class içerisine form control yazarak text in sayfayı kaplaması sağlanabilir. name özelliğinin anlamı ise category tablosuna veri eklenecek ama hangi sutuna eklenecek onu belirliyoruz. Database üzerinde category tablosu içerisinde hangi sutuna denk gelmesini istiyorsak onu eksiksiz buraya yazıyoruz. *@
+<!--<br />
+    <button class="btn btn-primary">Ekle</button>
+</form>-->
+@* HTML helperdan faydalanarak yapacağımız için yukarıdaki satırları yorum haline getirdik. *@
