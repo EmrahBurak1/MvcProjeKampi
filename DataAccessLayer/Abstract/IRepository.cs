@@ -16,6 +16,10 @@ namespace DataAccessLayer.Abstract
 
         void Insert(T p); //T den parametre al anlamındadır T hangi varlığa karşılık gelecekse onun içerisindeki propertileri p parametresi ile kullanabiliyoruz.
 
+        //Sildiriceğimiz değeri buldurmak için aşağıdaki kodu ekledik
+        //En altta bulunan list(expression... ile arasındaki fark. Generic repositoyr içerisinde tanımlandığı gibi burada singleordefault methodu ile tek bir değer döndürüyoruz. Aşağıdaki list ile bütün bir listeyi döndürüyoruz. Örneğin İsmi ali olan yazarları döndürmek istersek aşağıdaki list ifadesi kullanılır veya ID si 5 olan kullanıcıyı döndürmek istersek buradaki singleordefault ile ilgili olan ifade kullanılır.
+        T Get(Expression<Func<T, bool>> filter); //linq syntax'ı yapıldı. IRepository içerisinde get isimli bir method tanımlandı. Get methodunun türü T dir. Yani entitydir.
+       
         void Delete(T p);
 
         void Update(T p);

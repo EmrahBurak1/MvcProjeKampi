@@ -1,0 +1,27 @@
+﻿@model EntityLayer.Concrete.Category
+@*ilk olarak model çağırılır. *@
+
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Kategori Ekleme Sayfası</h1>
+<br />
+@* HTML helper kulanmak için razor syntax ile kullanılıyor *@
+@*Kullanımı da @ işareti ile başlıyor daha sonra HTML. yapılınca karşımıza methodlar çıkıyor. Çıkan methodlar html helper methodları örneğin textboxlar labellar checkboxlar vs bir çok araç var.*@
+@*Bu şekilde html helper kullanılarak başlangıç formu oluşturulur. Bu da begin form ile yapılır. 3 farklı parametre alır. İlk parametre bizim action ımızın ismi. İkinci parametre üzerinde çalıştığımız controller ismi, üçüncü parametre ise form methodunun değeri yani formmethod post yapılınca biz gönderme işlemi yapılınca ör butona basılınca süslü parantez bloğu arasındaki kodlar çalışsın anlamında.*@
+@using (Html.BeginForm("AddCategory", "AdminCategory", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Kategori Adı")
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-controller" }) @*,Textboxfor ile linq sorgusunu kullanarak kullanıcıdan bilgi alabiliriz. x=>x. denildiğinde modele bağlı özellikler karşımıza çıkar. Bu şekilde hatalar önlenmiş olur. new ile de form controller class'ı gönderilir.*@
+        @Html.ValidationMessageFor(x => x.CategoryName) @*Bu şekilde hata kullanıcıya gösterilebilir.*@
+        <br />  <br />
+        @Html.Label("Açıklamayı Yazınız")
+        @Html.TextAreaFor(x => x.CategoryDescription, new { @class = "form-controller" })
+        @Html.ValidationMessageFor(x => x.CategoryDescription)
+        <br /><br />
+        <button class="btn btn-info">Kaydet</button>
+    </div>
+}

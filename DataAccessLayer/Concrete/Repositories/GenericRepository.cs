@@ -31,6 +31,11 @@ namespace DataAccessLayer.Concrete.Repositories
             c.SaveChanges();
         }
 
+        public T Get(Expression<Func<T, bool>> filter)
+        {
+            return _object.SingleOrDefault(filter); //SingleOrDefault içerisine parametreden gelen filter değeri gönderildi. Singleor Default'un görevi bir dizide veya listede sadece bir tane değer döndürmek için kullanılan entityframework linq methodudur.
+        }
+
         public void Insert(T p)
         {
             _object.Add(p);

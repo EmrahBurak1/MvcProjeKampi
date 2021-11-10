@@ -46,6 +46,12 @@ namespace BusinessLayer.Concrete
             //Validation tarafında mesajları gösterebilmek için controller tarafında kod yazılır.
         }
 
+        //Kategory silme işleminde bulma işlemi için bu methodu kullanıyoruz.
+        public Category GetByID(int id)
+        {
+            return _categorydal.Get(x => x.CategoryID == id); //Get methodunu silme işlemi yapmak için IRepository içerisine tanımlamıştık. Linq sorgusu ile category sinifi içerisinde bulunan categoryID ile parametreden gelen id eşitmi sorgusu yazılıyor. Eşit ise ona göre işlemler gerçekleştirilir.
+        }
+
         //Burada ürettigimiz _categorydal nesnesine değer ataması için GenericRepository kullanabiliriz fakat asıl olay bussiness tarafında olabildiğince newlemekten kaçınmak ve projedeki bağımlılığı minimize etmek. Bu olay dependency injection olarak geçiyor. 
 
         public List<Category> GetList()
