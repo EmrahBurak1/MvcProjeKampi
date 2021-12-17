@@ -49,5 +49,27 @@ namespace MvcProjeKampi.Controllers
             }
             return View(); //Yukarıdaki koşulları yazdıktan sonra bu kodun devamını yorum yaptık.//RedirectToAction("GetCategoryList"); //Bunun amacı ekleme işlemi gerçekleştirildikten sonra parantez içerisinde tanımlanan methoda yönlendir anlamındadır.
         }
+
+        //Kategory silme işlemi için tanımlandı. Bir viewa sahip değil sadece index üzerinde çağırılarak kullanılacak.
+        public ActionResult DeleteCategory(int id)
+        {
+            var categotyvalue = cm.GetByID(id);
+            cm.CategoryDelete(categotyvalue); 
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult EditCategory(int id) //Category güncelleme işlemini burada yapıyoruz. Silme işmeindeki gibi önce ID yi bulmak gerekiyor.
+        {
+            var categoryvalue = cm.GetByID(id);
+            return View(categoryvalue); //Burada view döndürülürken değişken değerinide döndürüyoruz.
+        }
+
+        [HttpPost]
+        public ActionResult EditCategory(Category p) //Category güncelleme işlemini burada yapıyoruz. Silme işmeindeki gibi önce ID yi bulmak gerekiyor.
+        {
+            cm.CategoryUpdate(p);
+            return RedirectToAction("Index");
+        }
     }
 }

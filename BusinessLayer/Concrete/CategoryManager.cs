@@ -46,6 +46,16 @@ namespace BusinessLayer.Concrete
             //Validation tarafında mesajları gösterebilmek için controller tarafında kod yazılır.
         }
 
+        public void CategoryDelete(Category category)
+        {
+            _categorydal.Delete(category); //delete methodu genericrepository den gelen method.
+        }
+
+        public void CategoryUpdate(Category category)
+        {
+            _categorydal.Update(category);
+        }
+
         //Kategory silme işleminde bulma işlemi için bu methodu kullanıyoruz. 
         public Category GetByID(int id)
         {

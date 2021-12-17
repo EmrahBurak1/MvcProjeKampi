@@ -1,0 +1,25 @@
+﻿@model EntityLayer.Concrete.Category
+@* Category sınıfı içerisindeki entitylerle çalıştığımız için buraya çağırdık. *@
+@{
+    ViewBag.Title = "EditCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Kategori Güncelleme Sayfası</h2>
+@*İlk parametre hangi actiona gideceği, ikinci parametre editcategory nin nerde olduğunu belirtiyor,üçüncü parametre de burdaki method post olduğu zaman çalışacak anlamında.*@
+@using (Html.BeginForm("EditCategory", "AdminCategory", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("Kategori ID")
+    @Html.TextBoxFor(x => x.CategoryID, new { @class = "form-controller" })
+    <br />
+    @Html.Label("Kategori Adı")
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-controller" })
+    <br />
+    @Html.Label("Kategori Açılaması")
+    @Html.TextAreaFor(x => x.CategoryDescription, new { @class = "form-controller" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</div>
+}
