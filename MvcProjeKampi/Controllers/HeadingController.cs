@@ -52,9 +52,36 @@ namespace MvcProjeKampi.Controllers
             return RedirectToAction("Index"); 
         }
 
-        public ActionResult ContentByHeading()
+        [HttpGet]
+        public ActionResult EditHeading(int id)
         {
-            return View();
+            //Her bir kategory için tek tek textboxfor kullanmak yerine dropdownlist kullanmak daha mantıklı bu nedenle aşağıdaki yapıyı kullandık.
+            //linq sorgusuyla dropdownlist doldurulur.
+            List<SelectListItem> valuecategory = (from x in cm.GetList() //cm deki bütün veriler getirilir.
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CategoryName,
+                                                      Value = x.CategoryID.ToString()
+                                                  }).ToList();
+
+            ViewBag.vlc = valuecategory; //viewbag yardımı ile controller tarafındaki veri view'e aktarılır.
+
+            var HeadingValue = hm.GetByID(id);
+            return View(HeadingValue);
+        }
+        [HttpPost]
+        public ActionResult EditHeading(Heading p)
+        {
+            hm.HeadingUpdate(p);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DeleteHeading(int id)
+        {
+            var HeadingValue = hm.GetByID(id);
+            HeadingValue.HeadingStatus = false; //heading manager içerisinde yapılan işlem buraya taşındı.
+            hm.HeadingDelete(HeadingValue);
+            return RedirectToAction("Index");
         }
     }
 }

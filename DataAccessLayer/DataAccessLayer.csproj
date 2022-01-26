@@ -56,6 +56,7 @@
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="EntityFramework\EfContentDal.cs" />
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="EntityFramework\EfMessageDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202109291852138_mig1.cs" />
     <Compile Include="Migrations\202109291852138_mig1.designer.cs">
@@ -86,6 +88,18 @@
     <Compile Include="Migrations\202201031606255_mig_writer_addstatus.cs" />
     <Compile Include="Migrations\202201031606255_mig_writer_addstatus.designer.cs">
       <DependentUpon>202201031606255_mig_writer_addstatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201131827548_mig_contentstatusadd.cs" />
+    <Compile Include="Migrations\202201131827548_mig_contentstatusadd.designer.cs">
+      <DependentUpon>202201131827548_mig_contentstatusadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201131833356_mig_headingstatusadd.cs" />
+    <Compile Include="Migrations\202201131833356_mig_headingstatusadd.designer.cs">
+      <DependentUpon>202201131833356_mig_headingstatusadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201261353067_mig_add_message.cs" />
+    <Compile Include="Migrations\202201261353067_mig_add_message.designer.cs">
+      <DependentUpon>202201261353067_mig_add_message.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -115,6 +129,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201031606255_mig_writer_addstatus.resx">
       <DependentUpon>202201031606255_mig_writer_addstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201131827548_mig_contentstatusadd.resx">
+      <DependentUpon>202201131827548_mig_contentstatusadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201131833356_mig_headingstatusadd.resx">
+      <DependentUpon>202201131833356_mig_headingstatusadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201261353067_mig_add_message.resx">
+      <DependentUpon>202201261353067_mig_add_message.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

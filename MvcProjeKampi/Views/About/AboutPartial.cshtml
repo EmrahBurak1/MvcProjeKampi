@@ -1,0 +1,39 @@
+﻿@* Burada modalların farklı bir bölümde olması için partial oluşturup partial içerisine de normalde index içerisinde olan kodları attık. *@
+
+@* Burada bir buton tanımladık ve datatoggle özelliğini modal yaptık bunun anlamı pop-up tır. data-target ise hedefi belirlemek için kullanılıyor. *@
+<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+    Yeni Hakkımızda Yazı Girişi
+</button>
+
+@* Türü modal olan bir div tanımlıyoruz. Bu da class ile yapılır. id="Modal1" id içerisine yazılan değer de data-target ile aynı olmalıdır. *@
+<div class="modal" id="Modal1">
+    @* Aşağıdaki modal dialogun görevi dialog  penceresi açar. *@
+    <div class="modal-dialog">
+        @* aşağıdaki di modalın içeriği anlamına gelir. *@
+        <div class="modal-content">
+            @* modal headir ile modalın başlık alanını oluşturulur. *@
+            <div class="modal-header">
+                @* modal title ile modal başlığı verilebilir. *@
+                <h2 class="modal-title">Hakkımızda Metin Girişi</h2>
+            </div>
+            <form method="post" action="/About/AddAbout">
+                @* asagidaki satirda modakın govde kısmı oluşturuldu. *@
+                <div class="modal-body">
+                    <label>Hakkımda Metin 1</label>
+                    <input type="text" name="AboutDetails1" class="form-control" />
+                    <br />
+                    <label>Hakkımda Metin  2</label>
+                    <input type="text" name="AboutDetails2" class="form-control" />
+                    <br />
+                    <label>Hakkımda Görsel 1</label>
+                    <input type="text" name="AboutImage1" class="form-control" />
+                    <br />
+                    <label>Hakkımda Görsel 2</label>
+                    <input type="text" name="AboutImage2" class="form-control" />
+                    <br />
+                    <button class="btn btn-info">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

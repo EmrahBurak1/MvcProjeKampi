@@ -35,7 +35,9 @@ namespace BusinessLayer.Concrete
 
         public void HeadingDelete(Heading heading)
         {
-            _headingDal.Delete(heading);
+            //Burada entitylere işlem yaptırmak doğru değildir o yüzden daha sonra bu satırı yorum haline getirip controller içinde yaptık.
+            //heading.HeadingStatus = false; //Burada silme işlemi yaptırımyoruz onun yerine statusu false yapıyoruz.
+            _headingDal.Update(heading);
         }
 
         public void HeadingUpdate(Heading heading)

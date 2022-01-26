@@ -20,12 +20,14 @@ namespace EntityLayer.Concrete
         public DateTime ContentDate { get; set; } //İçeriğin tarihi
 
 
+        public bool ContentStatus { get; set; }
+
         //Burada heading ile kuracağımız ilişki için property oluşturmak gerekiyor.
         public int HeadingID { get; set; }
         public virtual Heading Heading { get; set; } //Bu şekilde başlık ile içiriği de ilişkili hale getirmiş olduk.
 
         //Writer ile ilişki kurmak için oluşturulan özellikler
         public int? WriterID { get; set; } //Burada soruişaretinin anlamı WriterID nullable olabilir anlamındadır. Yani boş bırakılabilir.
-        //public virtual Writer Writer { get; set; }
+        public virtual Writer Writer { get; set; }
     }
 }

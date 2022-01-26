@@ -18,6 +18,7 @@ namespace EntityLayer.Concrete
         public string HeadingName { get; set; } //Başlık İsmi
         public DateTime HeadingDate { get; set; } //Başlık Tarihi
 
+        public bool HeadingStatus { get; set; }
 
         //Category ile kurmak istediğimiz ilişki için kategory sınıfı içinde koleksiyon tanımlamıştık. Burada da  birkaç özellik girmek gerekiyor.
         public int CategoryID { get; set; } //Category sınıfında neye göre ilişkilendireceğimizi burada belirtiyoruz. Yani Heading tablomuz içerisinde CategoryId isimli bir sutun olacak.
